@@ -1,1 +1,5 @@
 cromwell/
+scripts/logs/
+scripts/cromwell-workflow-logs/
+*.json
+gatk4-germline-snps-indels/

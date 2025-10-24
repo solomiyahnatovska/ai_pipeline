@@ -20,10 +20,14 @@ module spider java/21.0.1
 # clone the gatk4-germline-snps-indels repository from github : https://github.com/gatk-workflows/gatk4-germline-snps-indels?tab=readme-ov-file
 
 git clone https://github.com/gatk-workflows/gatk4-germline-snps-indels.git
+# manually changed the  Boolean make_gvcf = true to  Boolean make_gvcf = false
+# ^ "for instances when calling variants for one or a few samples it is possible to have the workflow directly call variants and output a VCF file by setting the make_gvcf input variable to false."
+# we don't want to make the gvcfs because they are space comsuming
 
-# modify add_gb.sh : add correct paths to cromwell and the gatk wdl scripts
-# use scripts/docker_to_singularity.sh to 
-
+# modify add_gb.sh : add correct path to the gatk wdl scripts
+# run:
+bash add_gb.sh
+# modify docker_to_singularity.sh  : add correct path to the gatk wdl scripts
+bash docker_to_singularity.sh
 # configure cromwell using Navneet's script:
-java -Dconfig.file=scripts/cromwell.conf -jar cromwell/cromwell-88.jar server
-                                                                                             29,1          Bot
+sbatch call_cromwell.sh

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Directory containing WDL files
-WDL_DIR="/scratch/aujlana/gatk_sv_v.1.0.2/wdl"
+WDL_DIR="/scratch/hnatovs1/ai_pipeline/gatk4-germline-snps-indels"
 
 # Backup existing WDL files (optional but recommended)
-#echo "Backing up original WDL files..."
-#find "$WDL_DIR" -name '*.wdl' -exec cp {} {}.bak \;
+echo "Backing up original WDL files..."
+find "$WDL_DIR" -name '*.wdl' -exec cp {} {}.bak \;
 
 # Update all WDL files
 echo "Updating WDL files..."

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WDL_DIR="/scratch/aujlana/gatk_sv_v.1.0.2/wdl"
+WDL_DIR="/scratch/hnatovs1/ai_pipeline/gatk4-germline-snps-indels"
 cd "$WDL_DIR" || exit 1
 
 for file in *.wdl; do
