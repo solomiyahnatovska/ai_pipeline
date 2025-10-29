@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing WDL files
-WDL_DIR="/scratch/hnatovs1/ai_pipeline/gatk4-germline-snps-indels"
+WDL_DIR="/scratch/hnatovs1/ai_pipeline/gatk_wdl_scripts"
 
 # Backup existing WDL files (optional but recommended)
 echo "Backing up original WDL files..."

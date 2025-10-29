@@ -2,4 +2,8 @@ cromwell/
 scripts/logs/
 scripts/cromwell-workflow-logs/
 *.json
-gatk4-germline-snps-indels/
+data/
+scripts/cromwell-executions
+scripts/cromwell-workflow-logs
+gcloud_inputs/
+scripts/test_claud_solution.sh

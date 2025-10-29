@@ -31,3 +31,18 @@ bash add_gb.sh
 bash docker_to_singularity.sh
 # configure cromwell using Navneet's script:
 sbatch call_cromwell.sh
+
+# get the google cloud files for the input to the wdl
+mkdir /scratch/hnatovs1/ai_pipeline/gcloud_inputs
+
+# wget https://storage.googleapis.com/broad-public-datasets/NA12878/NA12878.cram
+# wget https://storage.googleapis.com/broad-public-datasets/NA12878/NA12878.cram.crai
+wget https://storage.googleapis.com/genomics-public-data/test-data/dna/wgs/hiseq2500/NA12878/H06HDADXX130110.1.ATCACGAT.20k_reads.bam
+module load samtools
+samtools index H06HDADXX130110.1.ATCACGAT.20k_reads.bam
+wget https://storage.googleapis.com/gcp-public-data--broad-references/hg38/v0/Homo_sapiens_assembly38.dict
+wget https://storage.googleapis.com/gcp-public-data--broad-references/hg38/v0/Homo_sapiens_assembly38.fasta
+wget https://storage.googleapis.com/gcp-public-data--broad-references/hg38/v0/Homo_sapiens_assembly38.fasta.fai
+
+wget https://storage.googleapis.com/gatk-test-data/intervals/hg38_wgs_scattered_calling_intervals.txt
+sed -i -e 's|gs://|https://storage.googleapis.com/|g' hg38_wgs_scattered_calling_intervals.txt
